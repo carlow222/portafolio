@@ -20,6 +20,54 @@ function cerrarModal() {
 }
 
 // ========================================
+// MENÚ DESPLEGABLE MÓVIL
+// ========================================
+
+// Función para abrir/cerrar el menú móvil
+function toggleMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const body = document.body;
+
+    if (menuToggle && navMenu && menuOverlay) {
+        // Alternar clases activas
+        menuToggle.classList.toggle('activo');
+        navMenu.classList.toggle('activo');
+        menuOverlay.classList.toggle('activo');
+        body.classList.toggle('menu-abierto');
+    }
+}
+
+// Cerrar el menú al hacer clic en el overlay
+function closeMenu() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const menuOverlay = document.getElementById('menu-overlay');
+    const body = document.body;
+
+    if (menuToggle && navMenu && menuOverlay) {
+        menuToggle.classList.remove('activo');
+        navMenu.classList.remove('activo');
+        menuOverlay.classList.remove('activo');
+        body.classList.remove('menu-abierto');
+    }
+}
+
+// Cerrar el menú al hacer clic en un enlace del menú
+function closeMenuOnLinkClick() {
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            // Solo cerrar en móviles (cuando el menú está visible)
+            if (window.innerWidth <= 768) {
+                closeMenu();
+            }
+        });
+    });
+}
+
+// ========================================
 // MANEJO DEL FORMULARIO DE CONTACTO
 // ========================================
 
@@ -31,6 +79,28 @@ document.addEventListener('DOMContentLoaded', function() {
         // Deshabilitar scroll cuando el modal esté visible
         document.body.style.overflow = 'hidden';
     }
+
+    // Configurar el botón hamburguesa
+    const menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
+
+    // Configurar el overlay para cerrar el menú
+    const menuOverlay = document.getElementById('menu-overlay');
+    if (menuOverlay) {
+        menuOverlay.addEventListener('click', closeMenu);
+    }
+
+    // Cerrar el menú al hacer clic en los enlaces
+    closeMenuOnLinkClick();
+
+    // Cerrar el menú al redimensionar la ventana (si se vuelve a desktop)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768) {
+            closeMenu();
+        }
+    });
     
     // Obtener referencia al formulario usando su ID (si existe en esta página)
     const formulario = document.getElementById('formulario-contacto');
