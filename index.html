@@ -1,103 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Configuración básica de la página -->
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de Welinton Suarez - Ingeniero de Sistemas">
-    <title>Carlos Prieto - </title>
+    <meta name="description" content="Portafolio profesional de Carlos Prieto - Aprendiz SENA ADSO">
+    <title>Carlos Prieto - Inicio</title>
     
-    <!-- Enlace a la fuente Poppins de Google Fonts -->
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Importar tipografía Poppins de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Enlace a los estilos CSS -->
-    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Navegación principal del sitio -->
+    <!-- Modal de Bienvenida - Cubre toda la pantalla -->
+    <div id="modal-bienvenida" class="modal-bienvenida">
+        <div class="modal-content">
+            <h1 class="modal-titulo">BIENVENIDOS A MI PORTAFOLIO</h1>
+            <div class="modal-decoracion"></div>
+            <button class="btn-cerrar-modal" onclick="cerrarModal()">Continuar</button>
+        </div>
+    </div>
+
+    <!-- Barra de navegación fija en la parte superior -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>WS</h2>
+                <a href="index.html">
+                    <h2>Carlos Prieto</h2>
+                </a>
             </div>
+            <!-- Menú de navegación -->
             <ul class="nav-menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="experiencia.html">Experiencia</a></li>
-                <li><a href="habilidades.html">Habilidades</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Sección de Presentación / Hero -->
-    <section id="inicio" class="hero">
+    <!-- Sección de Presentación -->
+    <section id="presentacion" class="presentacion">
         <div class="container">
-            <!-- Efecto de fondo futurista -->
-            <div class="hero-bg-effect"></div>
-            
-            <div class="hero-content">
-                <!-- Foto de perfil desde Cloudinary -->
+            <div class="presentacion-content">
+                <!-- Foto de perfil -->
                 <div class="profile-image">
-                    <div class="profile-glow"></div>
-                    <img src="https://res.cloudinary.com/dhbq6g12v/image/upload/v1761176898/744b4df1dd5f7b2dcc6003a9295e7e22_luejin.avif" 
-                         alt="Welinton Suarez - Ingeniero de Sistemas">
+                    <div class="profile-placeholder">
+                        <svg viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="75" cy="75" r="75" fill="#0a0a0a"/>
+                            <circle cx="75" cy="55" r="28" fill="#00f0ff" opacity="0.9"/>
+                            <path d="M75 100C50 100 25 105 15 115V140H135V115C125 105 100 100 75 100Z" fill="#00f0ff" opacity="0.9"/>
+                        </svg>
+                    </div>
                 </div>
-                
-                <!-- Información principal -->
-                <div class="hero-text">
-                    <div class="hero-title-wrapper">
-                        <h1 class="hero-title">
-                            <span class="title-line">Welinton</span>
-                            <span class="title-line accent">Suarez</span>
-                        </h1>
-                        <div class="title-underline"></div>
-                    </div>
-                    <p class="hero-subtitle">
-                        <span class="subtitle-icon">◉</span>
-                        Ingeniero de Sistemas
-                        <span class="subtitle-icon">◉</span>
+                <!-- Información personal -->
+                <div class="presentacion-text">
+                    <h1>Carlos Prieto</h1>
+                    <h2 class="profesion">Aprendiz SENA - ADSO</h2>
+                    <p class="descripcion">
+                        Desarrollador de Software en formación con pasión por crear soluciones tecnológicas 
+                        innovadoras. Especializado en desarrollo de aplicaciones y análisis de sistemas, 
+                        con enfoque en código limpio y mejores prácticas de programación. 
+                        <strong>Ganador de la Hackathon Talento Tech Cúcuta - Norte de Santander 2024</strong>.
                     </p>
-                    <p class="hero-description">
-                        Aprendiz SENA de Análisis y Desarrollo de Software. Apasionado por la tecnología 
-                        y el desarrollo de soluciones innovadoras. Especializado en desarrollo backend 
-                        con enfoque en crear aplicaciones eficientes y escalables.
-                    </p>
-                    
-                    <!-- Botones de acción -->
-                    <div class="hero-buttons">
-                        <a href="proyectos.html" class="btn btn-primary">
-                            <span>Ver Proyectos</span>
-                            <span class="btn-glow"></span>
-                        </a>
-                        <a href="contacto.html" class="btn btn-secondary">
-                            <span>Contactar</span>
-                            <span class="btn-glow"></span>
-                        </a>
-                    </div>
-
-                    <!-- Navegación rápida -->
-                    <div class="quick-nav">
-                        <a href="experiencia.html" class="quick-link">
-                            <span class="link-icon">→</span>
-                            <span>Experiencia</span>
-                        </a>
-                        <a href="habilidades.html" class="quick-link">
-                            <span class="link-icon">→</span>
-                            <span>Habilidades</span>
-                        </a>
-                    </div>
+                    <!-- Botón de llamada a la acción -->
+                    <a href="contacto.html" class="btn-primary">Contáctame</a>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Welinton Suarez – Todos los derechos reservados.</p>
+            <p>&copy; 2025 Carlos Prieto – Todos los derechos reservados.</p>
         </div>
     </footer>
 

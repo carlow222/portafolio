@@ -1,173 +1,163 @@
-// ============================================
+// ========================================
+// MODAL DE BIENVENIDA
+// ========================================
+
+// Función para cerrar el modal de bienvenida
+// Esta función se llama desde el botón en el HTML
+function cerrarModal() {
+    const modal = document.getElementById('modal-bienvenida');
+    if (modal) {
+        // Agregar clase para animación de salida
+        modal.classList.add('oculto');
+        
+        // Después de la animación, ocultar completamente el modal
+        setTimeout(function() {
+            modal.style.display = 'none';
+            // Habilitar el scroll del body
+            document.body.style.overflow = 'auto';
+        }, 500); // 500ms = duración de la animación fadeOut
+    }
+}
+
+// ========================================
 // MANEJO DEL FORMULARIO DE CONTACTO
-// ============================================
+// ========================================
 
-/**
- * Función que se ejecuta cuando el documento HTML está completamente cargado
- * Esto asegura que todos los elementos del DOM estén disponibles antes de ejecutar el código
- */
+// Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Obtener el formulario de contacto por su ID
-    const contactForm = document.getElementById('contactForm');
-
-    // Verificar que el formulario existe antes de agregar el evento
-    if (contactForm) {
-        /**
-         * Agregar un evento 'submit' al formulario
-         * Este evento se dispara cuando el usuario intenta enviar el formulario
-         */
-        contactForm.addEventListener('submit', function(event) {
-            // Prevenir el comportamiento por defecto del formulario
-            // Esto evita que la página se recargue cuando se envía el formulario
-            event.preventDefault();
-
-            // Obtener los valores de los campos del formulario
-            const nombre = document.getElementById('nombre').value;
-            const correo = document.getElementById('correo').value;
-            const mensaje = document.getElementById('mensaje').value;
-
-            // Validación básica: verificar que todos los campos estén llenos
-            if (nombre.trim() === '' || correo.trim() === '' || mensaje.trim() === '') {
-                // Si algún campo está vacío, mostrar un mensaje de error
-                alert('Por favor, completa todos los campos del formulario.');
-                return; // Detener la ejecución de la función
-            }
-
-            // Mostrar mensaje de éxito en la consola del navegador
-            // Para ver este mensaje, abre las herramientas de desarrollo (F12) y ve a la pestaña "Console"
-            console.log('Formulario enviado correctamente');
-            
-            // También puedes ver los datos del formulario en la consola
-            console.log('Datos del formulario:', {
+    // Prevenir el scroll cuando el modal esté visible (solo en index.html)
+    const modal = document.getElementById('modal-bienvenida');
+    if (modal) {
+        // Deshabilitar scroll cuando el modal esté visible
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Obtener referencia al formulario usando su ID (si existe en esta página)
+    const formulario = document.getElementById('formulario-contacto');
+    
+    // Solo agregar el listener si el formulario existe (solo en contacto.html)
+    if (formulario) {
+        // Agregar un event listener para el evento 'submit'
+        // Este evento se dispara cuando el usuario intenta enviar el formulario
+        formulario.addEventListener('submit', function(evento) {
+        
+        // Prevenir el comportamiento por defecto del formulario
+        // Normalmente, un formulario recargaría la página al enviarse
+        // Con preventDefault() evitamos eso y manejamos el envío manualmente
+        evento.preventDefault();
+        
+        // Obtener los valores de los campos del formulario
+        // Usamos .value para obtener el texto que el usuario escribió
+        const nombre = document.getElementById('nombre').value;
+        const correo = document.getElementById('correo').value;
+        const mensaje = document.getElementById('mensaje').value;
+        
+        // Validación básica: verificar que todos los campos tengan contenido
+        // trim() elimina espacios en blanco al inicio y final del texto
+        if (nombre.trim() === '' || correo.trim() === '' || mensaje.trim() === '') {
+            // Si algún campo está vacío, mostrar un mensaje al usuario
+            alert('Por favor, completa todos los campos del formulario.');
+            return; // Detener la ejecución aquí
+        }
+        
+        // Mostrar mensaje en la consola del navegador
+        // Para ver esto, el usuario debe abrir las herramientas de desarrollador (F12)
+        console.log('Formulario enviado correctamente');
+        
+        // También mostrar información detallada de lo que se envió
+        console.log('Datos del formulario:');
+        console.log('Nombre:', nombre);
+        console.log('Correo:', correo);
+        console.log('Mensaje:', mensaje);
+        
+        // Opcional: Mostrar un mensaje de confirmación al usuario
+        // alert() muestra un cuadro de diálogo en el navegador
+        alert('¡Mensaje enviado correctamente! Revisa la consola para ver los detalles.');
+        
+        // Limpiar el formulario después de enviarlo
+        // Esto deja los campos vacíos para un nuevo envío
+        formulario.reset();
+        
+        // Nota: En una aplicación real, aquí normalmente enviarías los datos
+        // a un servidor usando fetch() o XMLHttpRequest()
+        // Ejemplo de cómo sería:
+        /*
+        fetch('/api/contacto', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
                 nombre: nombre,
                 correo: correo,
                 mensaje: mensaje
-            });
-
-            // Opcional: Mostrar un mensaje visual al usuario
-            // Crear un elemento de mensaje de éxito con estilo futurista
-            const successMessage = document.createElement('div');
-            successMessage.style.cssText = `
-                background: rgba(0, 212, 255, 0.1);
-                color: #00d4ff;
-                padding: 1.5rem;
-                border: 2px solid #00d4ff;
-                border-left: 4px solid #00d4ff;
-                margin-top: 1.5rem;
-                text-align: center;
-                font-weight: 500;
-                box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-family: 'Orbitron', 'Poppins', sans-serif;
-            `;
-            successMessage.innerHTML = '<span style="color: #00d4ff; text-shadow: 0 0 10px #00d4ff;">✓</span> Mensaje enviado correctamente. Te contactaré pronto.';
-
-            // Insertar el mensaje después del formulario
-            contactForm.parentNode.insertBefore(successMessage, contactForm.nextSibling);
-
-            // Limpiar el formulario después de enviarlo
-            contactForm.reset();
-
-            // Remover el mensaje de éxito después de 5 segundos
-            setTimeout(function() {
-                if (successMessage.parentNode) {
-                    successMessage.parentNode.removeChild(successMessage);
-                }
-            }, 5000);
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
-    } else {
-        // Si el formulario no existe, mostrar un mensaje en la consola (solo para desarrollo)
-        console.warn('El formulario de contacto no fue encontrado en la página.');
-    }
-});
-
-// ============================================
-// SCROLL SUAVE PARA ENLACES DE NAVEGACIÓN
-// ============================================
-
-/**
- * Función para hacer que el desplazamiento al hacer clic en los enlaces del menú sea suave
- * Esto mejora la experiencia de usuario al navegar por la página
- */
-document.addEventListener('DOMContentLoaded', function() {
-    // Obtener todos los enlaces del menú de navegación
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    // Agregar un evento de clic a cada enlace
-    navLinks.forEach(function(link) {
-        link.addEventListener('click', function(event) {
-            // Obtener el atributo href del enlace (ejemplo: #inicio, #experiencia, etc.)
-            const href = this.getAttribute('href');
-
-            // Solo procesar si el href comienza con # (es un enlace interno)
-            if (href.startsWith('#')) {
-                // Prevenir el comportamiento por defecto del enlace
-                event.preventDefault();
-
-                // Obtener el ID de la sección destino (removiendo el #)
-                const targetId = href.substring(1);
-                
-                // Buscar el elemento de la sección destino
-                const targetSection = document.getElementById(targetId);
-
-                // Si la sección existe, hacer scroll suave hasta ella
-                if (targetSection) {
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth', // Scroll suave
-                        block: 'start'      // Alinear al inicio de la sección
-                    });
-                }
-            }
-        });
-    });
-});
-
-// ============================================
-// EFECTO DE APARICIÓN AL HACER SCROLL
-// ============================================
-
-/**
- * Función para agregar un efecto visual cuando los elementos aparecen en la pantalla
- * mientras el usuario hace scroll
- */
-document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar todos los elementos que queremos animar
-    const animatedElements = document.querySelectorAll('.experience-card, .skill-card, .project-card');
-
-    // Función que verifica si un elemento está visible en la pantalla
-    function isElementInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    // Función para manejar el scroll
-    function handleScroll() {
-        animatedElements.forEach(function(element) {
-            // Si el elemento está visible en la pantalla, agregar la clase 'visible'
-            if (isElementInViewport(element)) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
+        */
         });
     }
-
-    // Inicializar: ocultar los elementos al cargar la página
-    animatedElements.forEach(function(element) {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    // Agregar el evento de scroll a la ventana
-    window.addEventListener('scroll', handleScroll);
     
-    // Ejecutar una vez al cargar para verificar elementos visibles inicialmente
-    handleScroll();
+    // ========================================
+    // ANIMACIÓN DE BARRAS DE PROGRESO AL HACER SCROLL
+    // ========================================
+    
+    // Función para animar las barras de progreso cuando sean visibles
+    function animarBarrasProgreso() {
+        // Obtener todas las barras de progreso
+        const barras = document.querySelectorAll('.habilidad-progress');
+        
+        // Crear un observador que detecta cuando los elementos entran en la vista
+        const observador = new IntersectionObserver(function(entradas) {
+            entradas.forEach(function(entrada) {
+                // Si el elemento está visible en la pantalla
+                if (entrada.isIntersecting) {
+                    // Obtener el ancho guardado en el atributo data-width
+                    // o calcularlo desde el estilo inline
+                    const barra = entrada.target;
+                    const ancho = barra.style.width;
+                    
+                    // Si la barra no ha sido animada aún
+                    if (!barra.classList.contains('animada')) {
+                        barra.style.width = '0%'; // Iniciar en 0
+                        // Agregar clase para marcar como animada
+                        barra.classList.add('animada');
+                        
+                        // Animar hasta el ancho objetivo
+                        setTimeout(function() {
+                            barra.style.width = ancho;
+                        }, 100);
+                    }
+                }
+            });
+        }, {
+            threshold: 0.5 // Disparar cuando el 50% del elemento es visible
+        });
+        
+        // Observar cada barra de progreso
+        barras.forEach(function(barra) {
+            observador.observe(barra);
+        });
+    }
+    
+    // Llamar a la función cuando la página cargue
+    animarBarrasProgreso();
+    
+    // ========================================
+    // MENSAJE DE BIENVENIDA EN LA CONSOLA
+    // ========================================
+    
+    // Mensaje decorativo en la consola
+    console.log('%c¡Bienvenido al portafolio de Carlos Prieto!', 
+                'color: #00f0ff; font-size: 20px; font-weight: bold;');
+    console.log('%cEste portafolio fue desarrollado con HTML, CSS y JavaScript puro.', 
+                'color: #0099ff; font-size: 14px;');
+    
 });
 

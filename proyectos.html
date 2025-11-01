@@ -1,150 +1,122 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Configuración básica de la página -->
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Proyectos desarrollados por Welinton Suarez">
-    <title>Proyectos - Welinton Suarez</title>
+    <meta name="description" content="Proyectos destacados de Carlos Prieto - Aprendiz SENA ADSO">
+    <title>Carlos Prieto - Proyectos</title>
     
-    <!-- Enlace a la fuente Poppins de Google Fonts -->
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Importar tipografía Poppins de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Enlace a los estilos CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navegación principal del sitio -->
+    <!-- Barra de navegación fija en la parte superior -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>WS</h2>
+                <a href="index.html">
+                    <h2>Carlos Prieto</h2>
+                </a>
             </div>
+            <!-- Menú de navegación -->
             <ul class="nav-menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="experiencia.html">Experiencia</a></li>
-                <li><a href="habilidades.html">Habilidades</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Sección Hero de la página -->
-    <section class="page-hero">
-        <div class="container">
-            <h1 class="page-title">Proyectos</h1>
-            <p class="page-subtitle">Portafolio de soluciones desarrolladas</p>
-        </div>
-    </section>
-
     <!-- Sección de Proyectos -->
-    <section class="projects-page">
+    <section id="proyectos" class="proyectos">
         <div class="container">
-            <div class="projects-grid">
+            <h2 class="section-title">Proyectos Destacados</h2>
+            
+            <!-- Grid de proyectos con tarjetas -->
+            <div class="proyectos-grid">
                 <!-- Proyecto 1 -->
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="project-overlay"></div>
-                        <img src="https://picsum.photos/400/250?random=1" alt="Sistema de Gestión API">
+                <div class="proyecto-card">
+                    <div class="proyecto-imagen">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Sistema de Gestión Empresarial">
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Sistema de Gestión API</h3>
-                            <span class="project-badge">Backend</span>
-                        </div>
-                        <p>API RESTful desarrollada en Node.js para la gestión de recursos empresariales. 
-                           Incluye autenticación JWT, validación de datos y documentación completa.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">Express</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <a href="#" class="btn btn-primary">
-                            <span>Ver más</span>
-                            <span class="btn-arrow">→</span>
-                        </a>
+                    <div class="proyecto-content">
+                        <h3>Sistema de Gestión Empresarial</h3>
+                        <p>Sistema completo para gestión de inventarios, ventas y reportes empresariales 
+                        desarrollado con Java y bases de datos relacionales.</p>
+                        <button class="btn-secondary">Ver más</button>
                     </div>
                 </div>
 
                 <!-- Proyecto 2 -->
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="project-overlay"></div>
-                        <img src="https://picsum.photos/400/250?random=2" alt="Plataforma E-commerce">
+                <div class="proyecto-card">
+                    <div class="proyecto-imagen">
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=250&fit=crop" alt="E-commerce">
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Plataforma E-commerce Backend</h3>
-                            <span class="project-badge">Backend</span>
-                        </div>
-                        <p>Backend robusto para tienda en línea con gestión de productos, carrito de 
-                           compras, procesamiento de pagos y sistema de notificaciones.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Django</span>
-                            <span class="tech-tag">PostgreSQL</span>
-                        </div>
-                        <a href="#" class="btn btn-primary">
-                            <span>Ver más</span>
-                            <span class="btn-arrow">→</span>
-                        </a>
+                    <div class="proyecto-content">
+                        <h3>Aplicación Web E-commerce</h3>
+                        <p>Plataforma de comercio electrónico con carrito de compras, gestión de usuarios 
+                        y pasarela de pagos integrada.</p>
+                        <button class="btn-secondary">Ver más</button>
                     </div>
                 </div>
 
                 <!-- Proyecto 3 -->
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="project-overlay"></div>
-                        <img src="https://picsum.photos/400/250?random=3" alt="API de Análisis de Datos">
+                <div class="proyecto-card">
+                    <div class="proyecto-imagen">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Dashboard Analytics">
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>API de Análisis de Datos</h3>
-                            <span class="project-badge">Backend</span>
-                        </div>
-                        <p>Servicio backend para análisis y procesamiento de grandes volúmenes de datos. 
-                           Implementa algoritmos de optimización y caching inteligente.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring</span>
-                            <span class="tech-tag">Redis</span>
-                        </div>
-                        <a href="#" class="btn btn-primary">
-                            <span>Ver más</span>
-                            <span class="btn-arrow">→</span>
-                        </a>
+                    <div class="proyecto-content">
+                        <h3>Dashboard de Analytics</h3>
+                        <p>Panel de control interactivo para visualización de datos y métricas empresariales 
+                        con gráficos dinámicos y reportes en tiempo real.</p>
+                        <button class="btn-secondary">Ver más</button>
                     </div>
                 </div>
 
                 <!-- Proyecto 4 -->
-                <div class="project-card">
-                    <div class="card-glow"></div>
-                    <div class="project-image">
-                        <div class="project-overlay"></div>
-                        <img src="https://picsum.photos/400/250?random=4" alt="Sistema de Autenticación">
+                <div class="proyecto-card">
+                    <div class="proyecto-imagen">
+                        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=250&fit=crop" alt="Gestión Condominio">
                     </div>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>Sistema de Autenticación Seguro</h3>
-                            <span class="project-badge">Backend</span>
-                        </div>
-                        <p>Microservicio de autenticación con múltiples factores de seguridad, 
-                           recuperación de contraseñas y gestión de sesiones.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">JWT</span>
-                            <span class="tech-tag">OAuth</span>
-                        </div>
-                        <a href="#" class="btn btn-primary">
-                            <span>Ver más</span>
-                            <span class="btn-arrow">→</span>
-                        </a>
+                    <div class="proyecto-content">
+                        <h3>Sistema de Gestión para Condominio</h3>
+                        <p>Sistema integral para administración de condominios que incluye gestión de residentes, 
+                        pagos de administración, reservas de áreas comunes, mantenimiento y comunicación entre 
+                        propietarios y administración.</p>
+                        <button class="btn-secondary">Ver más</button>
+                    </div>
+                </div>
+
+                <!-- Proyecto 5 -->
+                <div class="proyecto-card">
+                    <div class="proyecto-imagen">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Aplicación Móvil">
+                    </div>
+                    <div class="proyecto-content">
+                        <h3>Aplicación Móvil Responsive</h3>
+                        <p>Aplicación web adaptable a dispositivos móviles con diseño responsive 
+                        y experiencia de usuario optimizada.</p>
+                        <button class="btn-secondary">Ver más</button>
+                    </div>
+                </div>
+
+                <!-- Proyecto 6 -->
+                <div class="proyecto-card">
+                    <div class="proyecto-imagen">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=400&h=250&fit=crop" alt="Sistema de Reportes">
+                    </div>
+                    <div class="proyecto-content">
+                        <h3>Sistema de Reportes Automatizados</h3>
+                        <p>Plataforma para generación automática de reportes con exportación a múltiples 
+                        formatos y programación de envíos.</p>
+                        <button class="btn-secondary">Ver más</button>
                     </div>
                 </div>
             </div>
@@ -154,7 +126,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Welinton Suarez – Todos los derechos reservados.</p>
+            <p>&copy; 2025 Carlos Prieto – Todos los derechos reservados.</p>
         </div>
     </footer>
 

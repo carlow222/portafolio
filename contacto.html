@@ -1,121 +1,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Configuración básica de la página -->
+    <!-- Configuración básica del documento -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contacta con Welinton Suarez">
-    <title>Contacto - Welinton Suarez</title>
+    <meta name="description" content="Contacta con Carlos Prieto - Aprendiz SENA ADSO">
+    <title>Carlos Prieto - Contacto</title>
     
-    <!-- Enlace a la fuente Poppins de Google Fonts -->
+    <!-- Enlace a la hoja de estilos -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Importar tipografía Poppins de Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Orbitron:wght@400;600;700;900&display=swap" rel="stylesheet">
-    
-    <!-- Enlace a los estilos CSS -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navegación principal del sitio -->
+    <!-- Barra de navegación fija en la parte superior -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <h2>WS</h2>
+                <a href="index.html">
+                    <h2>Carlos Prieto</h2>
+                </a>
             </div>
+            <!-- Menú de navegación -->
             <ul class="nav-menu">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="experiencia.html">Experiencia</a></li>
-                <li><a href="habilidades.html">Habilidades</a></li>
                 <li><a href="proyectos.html">Proyectos</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Sección Hero de la página -->
-    <section class="page-hero">
-        <div class="container">
-            <h1 class="page-title">Contacto</h1>
-            <p class="page-subtitle">Estemos en contacto</p>
-        </div>
-    </section>
-
     <!-- Sección de Contacto -->
-    <section class="contact-page">
+    <section id="contacto" class="contacto">
         <div class="container">
-            <div class="contact-content">
+            <h2 class="section-title">Contáctame</h2>
+            
+            <div class="contacto-content">
                 <!-- Formulario de contacto -->
-                <div class="contact-form-container">
-                    <div class="form-header">
-                        <h2>Envía un mensaje</h2>
-                        <p>Completa el formulario y me pondré en contacto contigo</p>
-                    </div>
-                    <form id="contactForm" class="contact-form">
-                        <!-- Campo de nombre -->
+                <div class="contacto-form">
+                    <form id="formulario-contacto">
+                        <!-- Campo: Nombre -->
                         <div class="form-group">
-                            <label for="nombre">
-                                <span class="label-icon">→</span>
-                                Nombre
-                            </label>
+                            <label for="nombre">Nombre</label>
                             <input type="text" id="nombre" name="nombre" required 
                                    placeholder="Tu nombre completo">
-                            <div class="input-line"></div>
                         </div>
-
-                        <!-- Campo de correo -->
+                        
+                        <!-- Campo: Correo electrónico -->
                         <div class="form-group">
-                            <label for="correo">
-                                <span class="label-icon">→</span>
-                                Correo Electrónico
-                            </label>
+                            <label for="correo">Correo Electrónico</label>
                             <input type="email" id="correo" name="correo" required 
                                    placeholder="tu@correo.com">
-                            <div class="input-line"></div>
                         </div>
-
-                        <!-- Campo de mensaje -->
+                        
+                        <!-- Campo: Mensaje -->
                         <div class="form-group">
-                            <label for="mensaje">
-                                <span class="label-icon">→</span>
-                                Mensaje
-                            </label>
+                            <label for="mensaje">Mensaje</label>
                             <textarea id="mensaje" name="mensaje" rows="5" required 
                                       placeholder="Escribe tu mensaje aquí..."></textarea>
-                            <div class="input-line"></div>
                         </div>
-
+                        
                         <!-- Botón de envío -->
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span>Enviar Mensaje</span>
-                            <span class="btn-glow"></span>
-                        </button>
+                        <button type="submit" class="btn-primary">Enviar Mensaje</button>
                     </form>
                 </div>
 
-                <!-- Redes sociales -->
-                <div class="social-links">
-                    <div class="social-header">
-                        <h2>Sígueme en</h2>
-                        <p>Conectemos en redes sociales</p>
-                    </div>
-                    <div class="social-icons">
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
-                           class="social-link" aria-label="LinkedIn">
-                            <span class="social-icon">in</span>
-                            <span class="social-text">LinkedIn</span>
-                            <span class="social-arrow">→</span>
+                <!-- Enlaces a redes sociales -->
+                <div class="redes-sociales">
+                    <h3>Encuéntrame en:</h3>
+                    <div class="social-links">
+                        <a href="https://linkedin.com" target="_blank" class="social-link linkedin">
+                            LinkedIn
                         </a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
-                           class="social-link" aria-label="GitHub">
-                            <span class="social-icon">gh</span>
-                            <span class="social-text">GitHub</span>
-                            <span class="social-arrow">→</span>
+                        <a href="https://github.com" target="_blank" class="social-link github">
+                            GitHub
                         </a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" 
-                           class="social-link" aria-label="Twitter">
-                            <span class="social-icon">X</span>
-                            <span class="social-text">X (Twitter)</span>
-                            <span class="social-arrow">→</span>
+                        <a href="https://x.com" target="_blank" class="social-link twitter">
+                            X (Twitter)
                         </a>
                     </div>
                 </div>
@@ -126,7 +91,7 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Welinton Suarez – Todos los derechos reservados.</p>
+            <p>&copy; 2025 Carlos Prieto – Todos los derechos reservados.</p>
         </div>
     </footer>
 
